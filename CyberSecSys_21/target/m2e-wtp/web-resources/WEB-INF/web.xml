@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	version="4.0" metadata-complete="true">
+
+	<display-name>CyberSecSys Management System</display-name>
+
+	<!-- LISTENER -->
+	<listener>
+		<listener-class>servlets_1.CyberSecViewLoader</listener-class>
+	</listener>
+
+	<!-- HOME -->
+	<servlet>
+		<servlet-name>HomeController</servlet-name>
+		<servlet-class>servlets_1.HomeController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HomeController</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+
+	<!-- QUIZ -->
+	<servlet>
+		<servlet-name>QuizServlet</servlet-name>
+		<servlet-class>servlets_1.QuizServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuizServlet</servlet-name>
+		<url-pattern>/quiz</url-pattern>
+	</servlet-mapping>
+
+	<!-- QUIZ RESULT -->
+	<servlet>
+		<servlet-name>QuizResultServlet</servlet-name>
+		<servlet-class>servlets_1.QuizResultServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuizResultServlet</servlet-name>
+		<url-pattern>/quiz-result</url-pattern>
+	</servlet-mapping>
+
+	<!-- STUDY MATERIAL -->
+	<servlet>
+		<servlet-name>StudyMaterialServlet</servlet-name>
+		<servlet-class>servlets_1.StudyMaterialServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StudyMaterialServlet</servlet-name>
+		<url-pattern>/study-material</url-pattern>
+	</servlet-mapping>
+
+	<!-- TRAINING GAME -->
+	<servlet>
+		<servlet-name>TrainingGameServlet</servlet-name>
+		<servlet-class>servlets_1.TrainingGameServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TrainingGameServlet</servlet-name>
+		<url-pattern>/training</url-pattern>
+	</servlet-mapping>
+
+	<!-- FORMS -->
+	<servlet>
+		<servlet-name>Form_01</servlet-name>
+		<servlet-class>servlets_1.Form_01</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_01</servlet-name>
+		<url-pattern>/forms/approach</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Form_02</servlet-name>
+		<servlet-class>servlets_1.Form_02</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_02</servlet-name>
+		<url-pattern>/forms/performance</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Form_03</servlet-name>
+		<servlet-class>servlets_1.Form_03</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_03</servlet-name>
+		<url-pattern>/forms/component</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Form_04</servlet-name>
+		<servlet-class>servlets_1.Form_04</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_04</servlet-name>
+		<url-pattern>/forms/types</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Form_05</servlet-name>
+		<servlet-class>servlets_1.Form_05</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_05</servlet-name>
+		<url-pattern>/forms/osapi</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Form_06</servlet-name>
+		<servlet-class>servlets_1.Form_06</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_06</servlet-name>
+		<url-pattern>/forms/defensive</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Form_07</servlet-name>
+		<servlet-class>servlets_1.Form_07</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_07</servlet-name>
+		<url-pattern>/forms/attack</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Form_09</servlet-name>
+		<servlet-class>servlets_1.Form_09</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_09</servlet-name>
+		<url-pattern>/forms/report</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Form_10</servlet-name>
+		<servlet-class>servlets_1.Form_10</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_10</servlet-name>
+		<url-pattern>/forms/report-csv</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Form_10</servlet-name>
+		<url-pattern>/forms/reportcsv</url-pattern>  <!-- SEM hífen -->
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Form_11</servlet-name>
+		<servlet-class>servlets_1.Form_11</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_11</servlet-name>
+		<url-pattern>/forms/searchFunctions</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Form_12</servlet-name>
+		<servlet-class>servlets_1.Form_12</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_12</servlet-name>
+		<url-pattern>/forms/searchTechnique</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Form_13</servlet-name>
+		<servlet-class>servlets_1.Form_13</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_13</servlet-name>
+		<url-pattern>/forms/searchMitigation</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Form_14</servlet-name>
+		<servlet-class>servlets_1.Form_14</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Form_14</servlet-name>
+		<url-pattern>/forms/chatbot</url-pattern>
+	</servlet-mapping>
+
+	<!-- WELCOME PAGE -->
+	<welcome-file-list>
+		<welcome-file>home</welcome-file>
+	</welcome-file-list>
+
+	<!-- ERROR PAGES -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404.html</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500.html</location>
+	</error-page>
+
+	<!-- SESSION -->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+</web-app>

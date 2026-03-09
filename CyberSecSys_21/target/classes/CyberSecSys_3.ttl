@@ -1,0 +1,1833 @@
+@prefix : <http://www.ppgi.uniriotec.br/CyberSecSys_1.0#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix CyberSecSys_1.0: <http://www.ppgi.unirio.br/CyberSecSys_1.0#> .
+@base <http://www.ppgi.unirio.br/CyberSecSys_1.0#> .
+
+<http://www.ppgi.unirio.br/CyberSecSys_1.0#> rdf:type owl:Ontology ;
+                                              owl:imports <http://d3fend.mitre.org/ontologies/d3fend.owl> ;
+                                              dc:description "Cybersecurity Management in Information Systems" ;
+                                              owl:versionIRI "CyberSecSys_Version_1.0" ;
+                                              owl:versionInfo 1.0 .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#versionIRI
+owl:versionIRI rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.ppgi.unirio.br/ColaborativeSystemHasApi
+<http://www.ppgi.unirio.br/ColaborativeSystemHasApi> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ppgi.unirio.br/ColaborativeSystemHasAttack
+<http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ppgi.unirio.br/ColaborativeSystemHasWeakness
+<http://www.ppgi.unirio.br/ColaborativeSystemHasWeakness> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack
+<http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ppgi.unirio.br/CyberOhysicalSystemHasWeakness
+<http://www.ppgi.unirio.br/CyberOhysicalSystemHasWeakness> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi
+<http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ppgi.unirio.br/IntelligentSystemHasApi
+<http://www.ppgi.unirio.br/IntelligentSystemHasApi> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ppgi.unirio.br/IntelligentSystemHasAttack
+<http://www.ppgi.unirio.br/IntelligentSystemHasAttack> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ppgi.unirio.br/IntelligentSystemHasWeakness
+<http://www.ppgi.unirio.br/IntelligentSystemHasWeakness> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ppgi.unirio.br/SecurityHasColaborativeSystem
+<http://www.ppgi.unirio.br/SecurityHasColaborativeSystem> rdf:type owl:ObjectProperty ;
+                                                          rdfs:subPropertyOf owl:topObjectProperty ;
+                                                          rdfs:domain :Collaborative_Systems_Component ;
+                                                          rdfs:range [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.ppgi.unirio.br/SecurityHasColaborativeSystem> ;
+                                                                       owl:someValuesFrom :Approach
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.ppgi.unirio.br/SecurityHasColaborativeSystem> ;
+                                                                       owl:someValuesFrom :Component
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.ppgi.unirio.br/SecurityHasColaborativeSystem> ;
+                                                                       owl:someValuesFrom :PerformanceEvaluation
+                                                                     ] .
+
+
+###  http://www.ppgi.unirio.br/SystemOfSystensHasApi
+<http://www.ppgi.unirio.br/SystemOfSystensHasApi> rdf:type owl:ObjectProperty ;
+                                                  rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.ppgi.unirio.br/SystemOfSystensHasAttack
+<http://www.ppgi.unirio.br/SystemOfSystensHasAttack> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ppgi.unirio.br/SystemOfSystensHasWeakness
+<http://www.ppgi.unirio.br/SystemOfSystensHasWeakness> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#SecurityHasCyberPhysicalSystem
+:SecurityHasCyberPhysicalSystem rdf:type owl:ObjectProperty ;
+                                rdfs:domain :Cyber-PhysicalSystem_Component ;
+                                rdfs:range [ rdf:type owl:Restriction ;
+                                             owl:onProperty :SecurityHasCyberPhysicalSystem ;
+                                             owl:someValuesFrom :Approach
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :SecurityHasCyberPhysicalSystem ;
+                                             owl:someValuesFrom :Component
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :SecurityHasCyberPhysicalSystem ;
+                                             owl:someValuesFrom :PerformanceEvaluation
+                                           ] .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#SecurityHasIntelligentSystem
+:SecurityHasIntelligentSystem rdf:type owl:ObjectProperty ;
+                              rdfs:domain :IntelligentSystem_Component ;
+                              rdfs:range [ rdf:type owl:Restriction ;
+                                           owl:onProperty :SecurityHasIntelligentSystem ;
+                                           owl:someValuesFrom :Approach
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :SecurityHasIntelligentSystem ;
+                                           owl:someValuesFrom :Component
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :SecurityHasIntelligentSystem ;
+                                           owl:someValuesFrom :PerformanceEvaluation
+                                         ] .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#SecurityHasSystem
+:SecurityHasSystem rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Cyber-PhysicalSystem_Component ,
+                               :IntelligentSystem_Component ,
+                               :System-Of-Systems_Component ;
+                   rdfs:range [ rdf:type owl:Restriction ;
+                                owl:onProperty :SecurityHasSystem ;
+                                owl:someValuesFrom :Cyber-PhysicalSystem_Component
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SecurityHasSystem ;
+                                owl:someValuesFrom :IntelligentSystem_Component
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SecurityHasSystem ;
+                                owl:someValuesFrom :System-Of-Systems_Component
+                              ] .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#SecurityHasSystemOfSystems
+:SecurityHasSystemOfSystems rdf:type owl:ObjectProperty ;
+                            rdfs:domain :System-Of-Systems_Component ;
+                            rdfs:range [ rdf:type owl:Restriction ;
+                                         owl:onProperty :SecurityHasSystemOfSystems ;
+                                         owl:someValuesFrom :Approach
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :SecurityHasSystemOfSystems ;
+                                         owl:someValuesFrom :Component
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :SecurityHasSystemOfSystems ;
+                                         owl:someValuesFrom :PerformanceEvaluation
+                                       ] .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Approach
+:Approach rdf:type owl:Class ;
+          rdfs:subClassOf :Security_Component .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Automation_Tool
+:Automation_Tool rdf:type owl:Class ;
+                 rdfs:subClassOf :Technology_Approach .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Collaborative_Systems_Component
+:Collaborative_Systems_Component rdf:type owl:Class .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Component
+:Component rdf:type owl:Class ;
+           rdfs:subClassOf :Security_Component .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Cyber-PhysicalSystem_Component
+:Cyber-PhysicalSystem_Component rdf:type owl:Class .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Evaluation_Methodology
+:Evaluation_Methodology rdf:type owl:Class ;
+                        rdfs:subClassOf :Process_PerformanceEvaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Framework_Development
+:Framework_Development rdf:type owl:Class ;
+                       rdfs:subClassOf :Technology_Approach .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Human_and_Behavioral_Aspect
+:Human_and_Behavioral_Aspect rdf:type owl:Class ;
+                             rdfs:subClassOf :Person_Component .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#IntelligentSystem_Component
+:IntelligentSystem_Component rdf:type owl:Class .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Ontology_Modeling
+:Ontology_Modeling rdf:type owl:Class ;
+                   rdfs:subClassOf :Process_Approach .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Ontology_Standard_and_Integration
+:Ontology_Standard_and_Integration rdf:type owl:Class ;
+                                   rdfs:subClassOf :Technology_Component .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#PerformanceEvaluation
+:PerformanceEvaluation rdf:type owl:Class ;
+                       rdfs:subClassOf :Security_Component .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Person_Approach
+:Person_Approach rdf:type owl:Class ;
+                 rdfs:subClassOf :Approach .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Person_Component
+:Person_Component rdf:type owl:Class ;
+                  rdfs:subClassOf :Component .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Person_PerformanceEvaluation
+:Person_PerformanceEvaluation rdf:type owl:Class ;
+                              rdfs:subClassOf :PerformanceEvaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Practical_Application
+:Practical_Application rdf:type owl:Class ;
+                       rdfs:subClassOf :Person_Approach .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Process_Approach
+:Process_Approach rdf:type owl:Class ;
+                  rdfs:subClassOf :Approach .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Process_Component
+:Process_Component rdf:type owl:Class ;
+                   rdfs:subClassOf :Component .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Process_PerformanceEvaluation
+:Process_PerformanceEvaluation rdf:type owl:Class ;
+                               rdfs:subClassOf :PerformanceEvaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Professional_Evaluation
+:Professional_Evaluation rdf:type owl:Class ;
+                         rdfs:subClassOf :Person_PerformanceEvaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Qualitative_Evaluation
+:Qualitative_Evaluation rdf:type owl:Class ;
+                        rdfs:subClassOf :Person_PerformanceEvaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Quality_Criteria_Validation
+:Quality_Criteria_Validation rdf:type owl:Class ;
+                             rdfs:subClassOf :Technology_PerformanceEvaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Quantitative_Performance_Evaluation
+:Quantitative_Performance_Evaluation rdf:type owl:Class ;
+                                     rdfs:subClassOf :Technology_PerformanceEvaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Risk_Analysis_and_Assessment
+:Risk_Analysis_and_Assessment rdf:type owl:Class ;
+                              rdfs:subClassOf :Process_Approach .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Risk_and_Threat_Assessment
+:Risk_and_Threat_Assessment rdf:type owl:Class ;
+                            rdfs:subClassOf :Process_Component .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Security_Component
+:Security_Component rdf:type owl:Class .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Security_Performance_Validation
+:Security_Performance_Validation rdf:type owl:Class ;
+                                 rdfs:subClassOf :Process_PerformanceEvaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Standardization_and_Quality
+:Standardization_and_Quality rdf:type owl:Class ;
+                             rdfs:subClassOf :Technology_Approach .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#System-Of-Systems_Component
+:System-Of-Systems_Component rdf:type owl:Class .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Technical_Implementation_Aspect
+:Technical_Implementation_Aspect rdf:type owl:Class ;
+                                 rdfs:subClassOf :Technology_Component .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Technology_Approach
+:Technology_Approach rdf:type owl:Class ;
+                     rdfs:subClassOf :Approach .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Technology_Component
+:Technology_Component rdf:type owl:Class ;
+                      rdfs:subClassOf :Component .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Technology_PerformanceEvaluation
+:Technology_PerformanceEvaluation rdf:type owl:Class ;
+                                  rdfs:subClassOf :PerformanceEvaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Usability_Evaluation
+:Usability_Evaluation rdf:type owl:Class ;
+                      rdfs:subClassOf :Person_PerformanceEvaluation .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#AccessMediation
+<http://d3fend.mitre.org/ontologies/d3fend.owl#AccessMediation> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#AccessPolicyAdministration
+<http://d3fend.mitre.org/ontologies/d3fend.owl#AccessPolicyAdministration> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#AgentAuthentication
+<http://d3fend.mitre.org/ontologies/d3fend.owl#AgentAuthentication> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#ApplicationHardening
+<http://d3fend.mitre.org/ontologies/d3fend.owl#ApplicationHardening> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#AssetInventory
+<http://d3fend.mitre.org/ontologies/d3fend.owl#AssetInventory> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#ContentFiltering
+<http://d3fend.mitre.org/ontologies/d3fend.owl#ContentFiltering> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#CredentialEviction
+<http://d3fend.mitre.org/ontologies/d3fend.owl#CredentialEviction> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#CredentialHardening
+<http://d3fend.mitre.org/ontologies/d3fend.owl#CredentialHardening> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#DecoyEnvironment
+<http://d3fend.mitre.org/ontologies/d3fend.owl#DecoyEnvironment> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#DecoyObject
+<http://d3fend.mitre.org/ontologies/d3fend.owl#DecoyObject> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#ExecutionIsolation
+<http://d3fend.mitre.org/ontologies/d3fend.owl#ExecutionIsolation> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#FileAnalysis
+<http://d3fend.mitre.org/ontologies/d3fend.owl#FileAnalysis> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#IdentifierAnalysis
+<http://d3fend.mitre.org/ontologies/d3fend.owl#IdentifierAnalysis> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#MessageAnalysis
+<http://d3fend.mitre.org/ontologies/d3fend.owl#MessageAnalysis> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#MessageHardening
+<http://d3fend.mitre.org/ontologies/d3fend.owl#MessageHardening> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#NetworkIsolation
+<http://d3fend.mitre.org/ontologies/d3fend.owl#NetworkIsolation> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#NetworkMapping
+<http://d3fend.mitre.org/ontologies/d3fend.owl#NetworkMapping> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#NetworkTrafficAnalysis
+<http://d3fend.mitre.org/ontologies/d3fend.owl#NetworkTrafficAnalysis> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#ObjectEviction
+<http://d3fend.mitre.org/ontologies/d3fend.owl#ObjectEviction> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#OperationalActivityMapping
+<http://d3fend.mitre.org/ontologies/d3fend.owl#OperationalActivityMapping> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#PlatformHardening
+<http://d3fend.mitre.org/ontologies/d3fend.owl#PlatformHardening> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#ProcessEviction
+<http://d3fend.mitre.org/ontologies/d3fend.owl#ProcessEviction> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#RestoreAccess
+<http://d3fend.mitre.org/ontologies/d3fend.owl#RestoreAccess> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#RestoreObject
+<http://d3fend.mitre.org/ontologies/d3fend.owl#RestoreObject> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#SystemMapping
+<http://d3fend.mitre.org/ontologies/d3fend.owl#SystemMapping> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://d3fend.mitre.org/ontologies/d3fend.owl#UserBehaviorAnalysis
+<http://d3fend.mitre.org/ontologies/d3fend.owl#UserBehaviorAnalysis> rdf:type <http://d3fend.mitre.org/ontologies/d3fend.owl#DefensiveTechnique> .
+
+
+###  http://www.ppgi.unirio.br/CWE-284
+<http://www.ppgi.unirio.br/CWE-284> rdf:type owl:NamedIndividual ,
+                                             <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-284> ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-284>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-284>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-284>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-284>
+                                             ] .
+
+
+###  http://www.ppgi.unirio.br/CWE-435
+<http://www.ppgi.unirio.br/CWE-435> rdf:type owl:NamedIndividual ,
+                                             <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-435> ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-435>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-435>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-435>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-435>
+                                             ] .
+
+
+###  http://www.ppgi.unirio.br/CWE-664
+<http://www.ppgi.unirio.br/CWE-664> rdf:type owl:NamedIndividual ,
+                                             <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-435> ,
+                                             <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-664> ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-664>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-664>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-664>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-664>
+                                             ] .
+
+
+###  http://www.ppgi.unirio.br/CWE-682
+<http://www.ppgi.unirio.br/CWE-682> rdf:type owl:NamedIndividual ,
+                                             <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-682> ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-682>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-682>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-682>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-682>
+                                             ] .
+
+
+###  http://www.ppgi.unirio.br/CWE-691
+<http://www.ppgi.unirio.br/CWE-691> rdf:type owl:NamedIndividual ,
+                                             <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-691> ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-691>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-691>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-691>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-691>
+                                             ] .
+
+
+###  http://www.ppgi.unirio.br/CWE-693
+<http://www.ppgi.unirio.br/CWE-693> rdf:type owl:NamedIndividual ,
+                                             <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-693> ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-693>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-693>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-693>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-693>
+                                             ] .
+
+
+###  http://www.ppgi.unirio.br/CWE-697
+<http://www.ppgi.unirio.br/CWE-697> rdf:type owl:NamedIndividual ,
+                                             <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-697> ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-697>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-697>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-697>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-697>
+                                             ] .
+
+
+###  http://www.ppgi.unirio.br/CWE-703
+<http://www.ppgi.unirio.br/CWE-703> rdf:type owl:NamedIndividual ,
+                                             <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-664> ,
+                                             <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-703> ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-703>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-703>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-703>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-703>
+                                             ] .
+
+
+###  http://www.ppgi.unirio.br/CWE-707
+<http://www.ppgi.unirio.br/CWE-707> rdf:type owl:NamedIndividual ,
+                                             <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-707> ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-707>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-707>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-707>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-707>
+                                             ] .
+
+
+###  http://www.ppgi.unirio.br/CWE-710
+<http://www.ppgi.unirio.br/CWE-710> rdf:type owl:NamedIndividual ,
+                                             <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-710> ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-710>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-710>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-710>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasWeakness> ;
+                                               owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#CWE-710>
+                                             ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIAccessProcess
+<http://www.ppgi.unirio.br/OSAPIAccessProcess> rdf:type owl:NamedIndividual ,
+                                                        <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIAccessProcess> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIAccessProcess>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIAccessProcess>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIAllocateMemory>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIAccessProcess>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIAccessProcess>
+                                                        ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIAllocateMemory
+<http://www.ppgi.unirio.br/OSAPIAllocateMemory> rdf:type owl:NamedIndividual ,
+                                                         <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIAllocateMemory> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                           owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIAllocateMemory>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                           owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIAllocateMemory>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                           owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIAllocateMemory>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                           owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIAllocateMemory>
+                                                         ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIConnectSocket
+<http://www.ppgi.unirio.br/OSAPIConnectSocket> rdf:type owl:NamedIndividual ,
+                                                        <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIConnectSocket> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIConnectSocket>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIConnectSocket>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIConnectSocket>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIConnectSocket>
+                                                        ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPICopyToken
+<http://www.ppgi.unirio.br/OSAPICopyToken> rdf:type owl:NamedIndividual ,
+                                                    <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICopyToken> ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                      owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICopyToken>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                      owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICopyToken>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                      owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICopyToken>
+                                                    ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPICreateFile
+<http://www.ppgi.unirio.br/OSAPICreateFile> rdf:type owl:NamedIndividual ,
+                                                     <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateFile> ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateFile>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateFile>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateFile>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateFile>
+                                                     ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPICreateProcess
+<http://www.ppgi.unirio.br/OSAPICreateProcess> rdf:type owl:NamedIndividual ,
+                                                        <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateProcess> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateSocket>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateProcess>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateProcess>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateProcess>
+                                                        ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPICreateSocket
+<http://www.ppgi.unirio.br/OSAPICreateSocket> rdf:type owl:NamedIndividual ,
+                                                       <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateSocket> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateSocket>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateSocket>
+                                                       ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPICreateThread
+<http://www.ppgi.unirio.br/OSAPICreateThread> rdf:type owl:NamedIndividual ,
+                                                       <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateThread> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateThread>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateThread>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateThread>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPICreateThread>
+                                                       ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIDeleteFile
+<http://www.ppgi.unirio.br/OSAPIDeleteFile> rdf:type owl:NamedIndividual ,
+                                                     <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIDeleteFile> ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIDeleteFile>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIDeleteFile>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIDeleteFile>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIDeleteFile>
+                                                     ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIExec
+<http://www.ppgi.unirio.br/OSAPIExec> rdf:type owl:NamedIndividual ,
+                                               <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIExec> ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                 owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIExec>
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                 owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIExec>
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                 owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIExec>
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                 owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIExec>
+                                               ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIFreeMemory
+<http://www.ppgi.unirio.br/OSAPIFreeMemory> rdf:type owl:NamedIndividual ,
+                                                     <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIFreeMemory> ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIFreeMemory>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIFreeMemory>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIFreeMemory>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIFreeMemory>
+                                                     ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIGetSystemTime
+<http://www.ppgi.unirio.br/OSAPIGetSystemTime> rdf:type owl:NamedIndividual ,
+                                                        <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIGetSystemTime> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIGetSystemTime>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIGetSystemTime>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIGetThreadContext>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIGetSystemTime>
+                                                        ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIGetThreadContext
+<http://www.ppgi.unirio.br/OSAPIGetThreadContext> rdf:type owl:NamedIndividual ,
+                                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIGetThreadContext> ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIGetThreadContext>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIGetThreadContext>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIGetThreadContext>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIGetThreadContext>
+                                                           ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPILoadModule
+<http://www.ppgi.unirio.br/OSAPILoadModule> rdf:type owl:NamedIndividual ,
+                                                     <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPILoadModule> ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPILoadModule>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPILoadModule>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPILoadModule>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPILoadModule>
+                                                     ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIMoveFile
+<http://www.ppgi.unirio.br/OSAPIMoveFile> rdf:type owl:NamedIndividual ,
+                                                   <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIMoveFile> ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                     owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIMoveFile>
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                     owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIMoveFile>
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                     owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIMoveFile>
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                     owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIMoveFile>
+                                                   ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIOpenFile
+<http://www.ppgi.unirio.br/OSAPIOpenFile> rdf:type owl:NamedIndividual ,
+                                                   <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIOpenFile> ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                     owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIOpenFile>
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                     owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIOpenFile>
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                     owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIOpenFile>
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                     owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIOpenFile>
+                                                   ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIReadFile
+<http://www.ppgi.unirio.br/OSAPIReadFile> rdf:type owl:NamedIndividual ,
+                                                   <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIReadFile> ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                     owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIReadFile>
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                     owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIReadFile>
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                     owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIReadFile>
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                     owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIReadFile>
+                                                   ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIReadMemory
+<http://www.ppgi.unirio.br/OSAPIReadMemory> rdf:type owl:NamedIndividual ,
+                                                     <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIReadMemory> ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIReadMemory>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIReadMemory>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIReadMemory>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                       owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIReadMemory>
+                                                     ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIResumeProcess
+<http://www.ppgi.unirio.br/OSAPIResumeProcess> rdf:type owl:NamedIndividual ,
+                                                        <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIResumeProcess> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIResumeProcess>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIResumeProcess>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIResumeProcess>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIResumeProcess>
+                                                        ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIResumeThread
+<http://www.ppgi.unirio.br/OSAPIResumeThread> rdf:type owl:NamedIndividual ,
+                                                       <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIResumeThread> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIResumeThread>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIResumeThread>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIResumeThread>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIResumeThread>
+                                                       ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPISaveRegisters
+<http://www.ppgi.unirio.br/OSAPISaveRegisters> rdf:type owl:NamedIndividual ,
+                                                        <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISaveRegisters> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISaveRegisters>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISaveRegisters>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISetRegisters>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISaveRegisters>
+                                                        ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPISetRegisters
+<http://www.ppgi.unirio.br/OSAPISetRegisters> rdf:type owl:NamedIndividual ,
+                                                       <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISetRegisters> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISetRegisters>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISetRegisters>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISetRegisters>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISetRegisters>
+                                                       ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPISetThreadContext
+<http://www.ppgi.unirio.br/OSAPISetThreadContext> rdf:type owl:NamedIndividual ,
+                                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISetThreadContext> ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISetThreadContext>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISetThreadContext>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISetThreadContext>
+                                                           ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPISuspendProcess
+<http://www.ppgi.unirio.br/OSAPISuspendProcess> rdf:type owl:NamedIndividual ,
+                                                         <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISuspendProcess> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                           owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISuspendProcess>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                           owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISuspendProcess>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                           owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISuspendProcess>
+                                                         ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPISuspendThread
+<http://www.ppgi.unirio.br/OSAPISuspendThread> rdf:type owl:NamedIndividual ,
+                                                        <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISuspendThread> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISuspendThread>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITerminateProcess>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISuspendThread>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                          owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPISuspendThread>
+                                                        ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPITerminateProcess
+<http://www.ppgi.unirio.br/OSAPITerminateProcess> rdf:type owl:NamedIndividual ,
+                                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITerminateProcess> ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITerminateProcess>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITerminateProcess>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITerminateProcess>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITerminateProcess>
+                                                           ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPITraceProcess
+<http://www.ppgi.unirio.br/OSAPITraceProcess> rdf:type owl:NamedIndividual ,
+                                                       <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITraceProcess> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITraceProcess>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITraceProcess>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITraceProcess>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITraceProcess>
+                                                       ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPITraceThread
+<http://www.ppgi.unirio.br/OSAPITraceThread> rdf:type owl:NamedIndividual ,
+                                                      <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITraceThread> ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                        owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITraceThread>
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                        owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITraceProcess>
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                        owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITraceThread>
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                        owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPITraceThread>
+                                                      ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIUnloadModule
+<http://www.ppgi.unirio.br/OSAPIUnloadModule> rdf:type owl:NamedIndividual ,
+                                                       <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIUnloadModule> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIUnloadModule>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIUnloadModule>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIUnloadModule>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                         owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIUnloadModule>
+                                                       ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIWriteFile
+<http://www.ppgi.unirio.br/OSAPIWriteFile> rdf:type owl:NamedIndividual ,
+                                                    <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIWriteFile> ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                      owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIWriteFile>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                      owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIWriteFile>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                      owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIWriteFile>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                      owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIWriteFile>
+                                                    ] .
+
+
+###  http://www.ppgi.unirio.br/OSAPIWriteMemory
+<http://www.ppgi.unirio.br/OSAPIWriteMemory> rdf:type owl:NamedIndividual ,
+                                                      <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIWriteMemory> ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasApi> ;
+                                                        owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIWriteMemory>
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.ppgi.unirio.br/CyberPhysicalSystemHasApi> ;
+                                                        owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIWriteMemory>
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasApi> ;
+                                                        owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIWriteMemory>
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasApi> ;
+                                                        owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#OSAPIWriteMemory>
+                                                      ] .
+
+
+###  http://www.ppgi.unirio.br/T1005
+<http://www.ppgi.unirio.br/T1005> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1005> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1005>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1005>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1005>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1005>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1025
+<http://www.ppgi.unirio.br/T1025> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1025> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1025>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1025>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1025>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1025>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1037
+<http://www.ppgi.unirio.br/T1037> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1037> .
+
+
+###  http://www.ppgi.unirio.br/T1039
+<http://www.ppgi.unirio.br/T1039> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1039> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1039>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1039>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1039>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1039>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1053
+<http://www.ppgi.unirio.br/T1053> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1053> .
+
+
+###  http://www.ppgi.unirio.br/T1055
+<http://www.ppgi.unirio.br/T1055> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1055> .
+
+
+###  http://www.ppgi.unirio.br/T1056
+<http://www.ppgi.unirio.br/T1056> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1056> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1056>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1056>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1056>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1056>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1068
+<http://www.ppgi.unirio.br/T1068> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1068> .
+
+
+###  http://www.ppgi.unirio.br/T1074
+<http://www.ppgi.unirio.br/T1074> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1074> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1074>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1074>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1074>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1074>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1078
+<http://www.ppgi.unirio.br/T1078> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1078> .
+
+
+###  http://www.ppgi.unirio.br/T1113
+<http://www.ppgi.unirio.br/T1113> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1113> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1113>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1113>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1113>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1113>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1114
+<http://www.ppgi.unirio.br/T1114> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1114> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1114>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1114>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1114>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1114>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1115
+<http://www.ppgi.unirio.br/T1115> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1115> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1115>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1115>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1115>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1115>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1119
+<http://www.ppgi.unirio.br/T1119> rdf:type owl:NamedIndividual .
+
+
+###  http://www.ppgi.unirio.br/T1123
+<http://www.ppgi.unirio.br/T1123> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1123> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1123>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1123>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1123>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1123>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1125
+<http://www.ppgi.unirio.br/T1125> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1125> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1125>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1125>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1125>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1125>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1134
+<http://www.ppgi.unirio.br/T1134> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1134> .
+
+
+###  http://www.ppgi.unirio.br/T1185
+<http://www.ppgi.unirio.br/T1185> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1185> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1185>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1185>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1185>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1185>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1213
+<http://www.ppgi.unirio.br/T1213> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1213> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1213>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1213>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1213>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1213>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1484
+<http://www.ppgi.unirio.br/T1484> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1484> .
+
+
+###  http://www.ppgi.unirio.br/T1530
+<http://www.ppgi.unirio.br/T1530> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1530> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1530>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1530>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1530>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1530>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1543
+<http://www.ppgi.unirio.br/T1543> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1543> .
+
+
+###  http://www.ppgi.unirio.br/T1546
+<http://www.ppgi.unirio.br/T1546> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1546> .
+
+
+###  http://www.ppgi.unirio.br/T1547
+<http://www.ppgi.unirio.br/T1547> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1547> .
+
+
+###  http://www.ppgi.unirio.br/T1548
+<http://www.ppgi.unirio.br/T1548> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1548> .
+
+
+###  http://www.ppgi.unirio.br/T1557
+<http://www.ppgi.unirio.br/T1557> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1557> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1557>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1557>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1557>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1557>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1560
+<http://www.ppgi.unirio.br/T1560> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1560> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1560>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1560>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1560>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1560>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1574
+<http://www.ppgi.unirio.br/T1574> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1574> .
+
+
+###  http://www.ppgi.unirio.br/T1602
+<http://www.ppgi.unirio.br/T1602> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1602> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/ColaborativeSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1602>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/CyberOhysicalSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1602>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/IntelligentSystemHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1602>
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <http://www.ppgi.unirio.br/SystemOfSystensHasAttack> ;
+                                             owl:someValuesFrom <http://d3fend.mitre.org/ontologies/d3fend.owl#T1602>
+                                           ] .
+
+
+###  http://www.ppgi.unirio.br/T1611
+<http://www.ppgi.unirio.br/T1611> rdf:type owl:NamedIndividual ,
+                                           <http://d3fend.mitre.org/ontologies/d3fend.owl#T1611> .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Automation_Tool
+:Automation_Tool rdf:type owl:NamedIndividual ,
+                          :Approach ,
+                          :Automation_Tool .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Collaborative_Systems_Component
+:Collaborative_Systems_Component rdf:type owl:NamedIndividual ,
+                                          :Collaborative_Systems_Component ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty <http://www.ppgi.unirio.br/SecurityHasColaborativeSystem> ;
+                                            owl:someValuesFrom :Collaborative_Systems_Component
+                                          ] .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Cyber-PhysicalSystem_Component
+:Cyber-PhysicalSystem_Component rdf:type owl:NamedIndividual ,
+                                         :Cyber-PhysicalSystem_Component ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :SecurityHasCyberPhysicalSystem ;
+                                           owl:someValuesFrom :Cyber-PhysicalSystem_Component
+                                         ] .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Evaluation_Methodology
+:Evaluation_Methodology rdf:type owl:NamedIndividual ,
+                                 :Evaluation_Methodology ,
+                                 :PerformanceEvaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Framework_Development
+:Framework_Development rdf:type owl:NamedIndividual ,
+                                :Approach ,
+                                :Framework_Development .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Human_and_Behavioral_Aspect
+:Human_and_Behavioral_Aspect rdf:type owl:NamedIndividual ,
+                                      :Component ,
+                                      :Human_and_Behavioral_Aspect .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#IntelligentSystem_Component
+:IntelligentSystem_Component rdf:type owl:NamedIndividual ,
+                                      :IntelligentSystem_Component .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Ontology_Modeling
+:Ontology_Modeling rdf:type owl:NamedIndividual ,
+                            :Approach ,
+                            :Ontology_Modeling .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Ontology_Standard_and_Integration
+:Ontology_Standard_and_Integration rdf:type owl:NamedIndividual ,
+                                            :Component ,
+                                            :Ontology_Standard_and_Integration .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Practical_Application
+:Practical_Application rdf:type owl:NamedIndividual ,
+                                :Approach ,
+                                :Practical_Application .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Professional_Evaluation
+:Professional_Evaluation rdf:type owl:NamedIndividual ,
+                                  :PerformanceEvaluation ,
+                                  :Professional_Evaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Qualitative_Evaluation
+:Qualitative_Evaluation rdf:type owl:NamedIndividual ,
+                                 :PerformanceEvaluation ,
+                                 :Qualitative_Evaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Quality_Criteria_Validation
+:Quality_Criteria_Validation rdf:type owl:NamedIndividual ,
+                                      :PerformanceEvaluation ,
+                                      :Quality_Criteria_Validation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Quantitative_Performance_Evaluation
+:Quantitative_Performance_Evaluation rdf:type owl:NamedIndividual ,
+                                              :PerformanceEvaluation ,
+                                              :Quantitative_Performance_Evaluation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Risk_Analysis_and_Assessment
+:Risk_Analysis_and_Assessment rdf:type owl:NamedIndividual ,
+                                       :Approach ,
+                                       :Risk_Analysis_and_Assessment .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Risk_and_Threat_Assessment
+:Risk_and_Threat_Assessment rdf:type owl:NamedIndividual ,
+                                     :Component ,
+                                     :Risk_and_Threat_Assessment .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Security_Performance_Validation
+:Security_Performance_Validation rdf:type owl:NamedIndividual ,
+                                          :PerformanceEvaluation ,
+                                          :Security_Performance_Validation .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Standardization_and_Quality
+:Standardization_and_Quality rdf:type owl:NamedIndividual ,
+                                      :Approach ,
+                                      :Standardization_and_Quality .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#System-Of-Systems_Component
+:System-Of-Systems_Component rdf:type owl:NamedIndividual ,
+                                      :System-Of-Systems_Component ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :SecurityHasSystemOfSystems ;
+                                        owl:someValuesFrom :System-Of-Systems_Component
+                                      ] .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Technical_Implementation_Aspect
+:Technical_Implementation_Aspect rdf:type owl:NamedIndividual ,
+                                          :Component ,
+                                          :Technical_Implementation_Aspect .
+
+
+###  http://www.ppgi.uniriotec.br/CyberSecSys_1.0#Usability_Evaluation
+:Usability_Evaluation rdf:type owl:NamedIndividual ,
+                               :PerformanceEvaluation ,
+                               :Usability_Evaluation .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

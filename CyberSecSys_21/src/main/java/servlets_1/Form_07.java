@@ -1,0 +1,271 @@
+package servlets_1;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet({"forms/attack"})
+public class Form_07 extends HttpServlet {
+   private static final long serialVersionUID = 1L;
+
+   protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+      res.setContentType("text/html");
+      List<String> lista = new ArrayList();
+      ArrayList resultado = new ArrayList();
+
+      try {
+         CyberSecView view = (CyberSecView)req.getServletContext().getAttribute("cyberSecView");
+         if (view != null) {
+            resultado.addAll(view.getDefensiveTechnique7());
+         } else {
+            resultado.add("Erro: CyberSecView não foi carregada no contexto da aplicação.");
+         }
+      } catch (Exception var7) {
+         resultado.add("Erro ao carregar dados da ontologia: " + var7.getMessage());
+      }
+
+      lista.addAll(resultado);
+      Collections.sort(lista);
+      PrintWriter printWriter = res.getWriter();
+      printWriter.print("<!DOCTYPE html>");
+      printWriter.print("<html lang='en'>");
+      printWriter.print("<head>");
+      printWriter.print("  <meta charset='UTF-8'>");
+      printWriter.print("  <meta name='viewport' content='width=device-width, initial-scale=1'>");
+      printWriter.print("  <title>Cybersecurity Management in Information Systems</title>");
+      printWriter.print("  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet' />");
+      printWriter.print("  <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css' rel='stylesheet' />");
+      printWriter.print("  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap' rel='stylesheet'>");
+      printWriter.print("  <style>");
+      printWriter.print("    :root {");
+      printWriter.print("      --primary-color: #4c5cb0;");
+      printWriter.print("      --primary-dark: #3f4f9d;");
+      printWriter.print("      --secondary-color: #5a3b85;");
+      printWriter.print("      --accent-color: #c16bd6;");
+      printWriter.print("      --bg-gradient: linear-gradient(135deg, #4c5cb0 0%, #5a3b85 100%);");
+      printWriter.print("      --card-shadow: 0 10px 25px rgba(0,0,0,0.2);");
+      printWriter.print("      --card-shadow-hover: 0 20px 40px rgba(0,0,0,0.3);");
+      printWriter.print("      --text-primary: #1a202c;");
+      printWriter.print("      --text-secondary: #2d3748;");
+      printWriter.print("      --border-color: #cbd5e0;");
+      printWriter.print("      --bg-color: #e2e8f0;");
+      printWriter.print("    }");
+      printWriter.print("    * {");
+      printWriter.print("      margin: 0;");
+      printWriter.print("      padding: 0;");
+      printWriter.print("      box-sizing: border-box;");
+      printWriter.print("    }");
+      printWriter.print("    body {");
+      printWriter.print("      font-family: 'Inter', sans-serif;");
+      printWriter.print("      background: linear-gradient(135deg, #e2e8f0 0%, #a3b8d1 100%);");
+      printWriter.print("      min-height: 100vh;");
+      printWriter.print("      color: var(--text-primary);");
+      printWriter.print("    }");
+      printWriter.print("    .hero-section {");
+      printWriter.print("      background: var(--bg-gradient);");
+      printWriter.print("      padding: 3rem 0;");
+      printWriter.print("      margin-bottom: 2rem;");
+      printWriter.print("      position: relative;");
+      printWriter.print("      overflow: hidden;");
+      printWriter.print("    }");
+      printWriter.print("    .hero-section::before {");
+      printWriter.print("      content: '';");
+      printWriter.print("      position: absolute;");
+      printWriter.print("      top: 0;");
+      printWriter.print("      left: 0;");
+      printWriter.print("      right: 0;");
+      printWriter.print("      bottom: 0;");
+      printWriter.print("      background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"grid\" width=\"10\" height=\"10\" patternUnits=\"userSpaceOnUse\"><path d=\"M 10 0 L 0 0 0 10\" fill=\"none\" stroke=\"rgba(0,0,0,0.2)\" stroke-width=\"0.5\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23grid)\" /></svg>');");
+      printWriter.print("      opacity: 0.3;");
+      printWriter.print("    }");
+      printWriter.print("    .hero-content {");
+      printWriter.print("      position: relative;");
+      printWriter.print("      z-index: 1;");
+      printWriter.print("    }");
+      printWriter.print("    .main-title {");
+      printWriter.print("      font-size: 2.5rem;");
+      printWriter.print("      font-weight: 700;");
+      printWriter.print("      color: white;");
+      printWriter.print("      text-align: center;");
+      printWriter.print("      margin-bottom: 0.5rem;");
+      printWriter.print("      text-shadow: 0 2px 4px rgba(0,0,0,0.3);");
+      printWriter.print("    }");
+      printWriter.print("    .hero-subtitle {");
+      printWriter.print("      font-size: 1.1rem;");
+      printWriter.print("      color: rgba(255,255,255,0.9);");
+      printWriter.print("      text-align: center;");
+      printWriter.print("      font-weight: 300;");
+      printWriter.print("    }");
+      printWriter.print("    .container {");
+      printWriter.print("      max-width: 1100px;");
+      printWriter.print("      margin: 0 auto;");
+      printWriter.print("      padding: 0 15px;");
+      printWriter.print("    }");
+      printWriter.print("    .content-card {");
+      printWriter.print("      background: white;");
+      printWriter.print("      border: none;");
+      printWriter.print("      border-radius: 20px;");
+      printWriter.print("      padding: 2.5rem;");
+      printWriter.print("      box-shadow: var(--card-shadow);");
+      printWriter.print("      margin-bottom: 2rem;");
+      printWriter.print("    }");
+      printWriter.print("    .content-title {");
+      printWriter.print("      color: var(--primary-color);");
+      printWriter.print("      font-weight: 600;");
+      printWriter.print("      margin-bottom: 1.5rem;");
+      printWriter.print("      font-size: 1.5rem;");
+      printWriter.print("      border-bottom: 2px solid var(--border-color);");
+      printWriter.print("      padding-bottom: 0.75rem;");
+      printWriter.print("    }");
+      printWriter.print("    .result-info {");
+      printWriter.print("      background: rgba(76, 92, 176, 0.1);");
+      printWriter.print("      border-left: 4px solid var(--primary-color);");
+      printWriter.print("      padding: 1rem 1.5rem;");
+      printWriter.print("      border-radius: 8px;");
+      printWriter.print("      margin-bottom: 2rem;");
+      printWriter.print("      font-size: 1.1rem;");
+      printWriter.print("    }");
+      printWriter.print("    .class-list {");
+      printWriter.print("      list-style-type: none;");
+      printWriter.print("      padding: 0;");
+      printWriter.print("    }");
+      printWriter.print("    .class-item {");
+      printWriter.print("      padding: 1rem 1.25rem;");
+      printWriter.print("      margin-bottom: 0.75rem;");
+      printWriter.print("      background: #f8f9fa;");
+      printWriter.print("      border-radius: 12px;");
+      printWriter.print("      border-left: 4px solid var(--accent-color);");
+      printWriter.print("      transition: all 0.3s ease;");
+      printWriter.print("    }");
+      printWriter.print("    .class-item:hover {");
+      printWriter.print("      background: #e9ecef;");
+      printWriter.print("      transform: translateX(5px);");
+      printWriter.print("    }");
+      printWriter.print("    .class-number {");
+      printWriter.print("      display: inline-block;");
+      printWriter.print("      width: 30px;");
+      printWriter.print("      height: 30px;");
+      printWriter.print("      background: var(--bg-gradient);");
+      printWriter.print("      color: white;");
+      printWriter.print("      text-align: center;");
+      printWriter.print("      line-height: 30px;");
+      printWriter.print("      border-radius: 50%;");
+      printWriter.print("      margin-right: 12px;");
+      printWriter.print("      font-weight: 600;");
+      printWriter.print("      font-size: 0.9rem;");
+      printWriter.print("    }");
+      printWriter.print("    .btn-back {");
+      printWriter.print("      background: var(--bg-gradient);");
+      printWriter.print("      color: white;");
+      printWriter.print("      border: none;");
+      printWriter.print("      border-radius: 50px;");
+      printWriter.print("      padding: 0.75rem 2rem;");
+      printWriter.print("      font-weight: 500;");
+      printWriter.print("      font-size: 0.9rem;");
+      printWriter.print("      transition: all 0.3s ease;");
+      printWriter.print("      text-transform: uppercase;");
+      printWriter.print("      letter-spacing: 0.5px;");
+      printWriter.print("      display: inline-flex;");
+      printWriter.print("      align-items: center;");
+      printWriter.print("      text-decoration: none;");
+      printWriter.print("    }");
+      printWriter.print("    .btn-back:hover {");
+      printWriter.print("      transform: translateY(-2px);");
+      printWriter.print("      box-shadow: 0 10px 20px rgba(76, 92, 176, 0.4);");
+      printWriter.print("      color: white;");
+      printWriter.print("    }");
+      printWriter.print("    .footer-section {");
+      printWriter.print("      background: #1a202c;");
+      printWriter.print("      color: white;");
+      printWriter.print("      text-align: center;");
+      printWriter.print("      padding: 2rem 0;");
+      printWriter.print("      margin-top: 3rem;");
+      printWriter.print("    }");
+      printWriter.print("    .error-message {");
+      printWriter.print("      background: #fee;");
+      printWriter.print("      border-left: 4px solid #e53e3e;");
+      printWriter.print("      color: #c53030;");
+      printWriter.print("      padding: 1rem 1.5rem;");
+      printWriter.print("      border-radius: 8px;");
+      printWriter.print("      margin-bottom: 2rem;");
+      printWriter.print("    }");
+      printWriter.print("    @media (max-width: 768px) {");
+      printWriter.print("      .main-title {");
+      printWriter.print("        font-size: 2rem;");
+      printWriter.print("      }");
+      printWriter.print("      .content-card {");
+      printWriter.print("        padding: 1.5rem;");
+      printWriter.print("      }");
+      printWriter.print("      .hero-section {");
+      printWriter.print("        padding: 2rem 0;");
+      printWriter.print("      }");
+      printWriter.print("    }");
+      printWriter.print("  </style>");
+      printWriter.print("</head>");
+      printWriter.print("<body>");
+      printWriter.print("  <div class='hero-section'>");
+      printWriter.print("    <div class='container hero-content'>");
+      printWriter.print("      <h1 class='main-title'>CyberSecSys Version 1.0</h1>");
+      printWriter.print("      <p class='hero-subtitle'>Cybersecurity Management in Information Systems</p>");
+      printWriter.print("    </div>");
+      printWriter.print("  </div>");
+      printWriter.print("  <div class='container'>");
+      printWriter.print("    <div class='content-card'>");
+      printWriter.print("      <h2 class='content-title'>Cybersecurity Performance</h2>");
+      if (!lista.isEmpty() && ((String)lista.get(0)).startsWith("Erro")) {
+         printWriter.print("      <div class='error-message'>");
+         printWriter.print("        <i class='fas fa-exclamation-triangle me-2'></i>");
+         printWriter.print("        " + (String)lista.get(0));
+         printWriter.print("      </div>");
+      } else {
+         printWriter.print("      <div class='result-info'>");
+         printWriter.print("        <i class='fas fa-info-circle me-2'></i>");
+         printWriter.print("        Found " + lista.size() + " ways in which cybersecurity performance is assessed in information systems.");
+         printWriter.print("      </div>");
+         printWriter.print("      <p class='mb-4'>Cybersecurity performance is evaluated through:</p>");
+         if (lista.isEmpty()) {
+            printWriter.print("      <div class='alert alert-warning'>");
+            printWriter.print("        <i class='fas fa-exclamation-circle me-2'></i>");
+            printWriter.print("        No Approach instances found in the ontology.");
+            printWriter.print("      </div>");
+         } else {
+            printWriter.print("      <ul class='class-list'>");
+
+            for(int i = 0; i < lista.size(); ++i) {
+               printWriter.print("        <li class='class-item'>");
+               printWriter.print("          <span class='class-number'>" + (i + 1) + "</span>");
+               printWriter.print("          <strong>" + (String)lista.get(i) + "</strong>");
+               printWriter.print("        </li>");
+            }
+
+            printWriter.print("      </ul>");
+         }
+      }
+
+      printWriter.print("      <div class='mt-4'>");
+      printWriter.print("        <a href='" + req.getContextPath() + "/home' class='btn btn-back'>");
+      printWriter.print("          <i class='fas fa-arrow-left me-2'></i> Back to Main Menu");
+      printWriter.print("        </a>");
+      printWriter.print("      </div>");
+      printWriter.print("    </div>");
+      printWriter.print("  </div>");
+      printWriter.println("<div class=\"footer-section\">");
+      printWriter.println("    <div class=\"container\">");
+      printWriter.println("        <p style=\"margin: 5px 0; font-weight: bold;\">© 2025 Cybersecurity Management in Information Systems</p>");
+      printWriter.println("        <p style=\"margin: 5px 0;\">© Federal University of the State of Rio de Janeiro (UNIRIO)</p>");
+      printWriter.println("        <p style=\"margin: 5px 0;\">© Graduate Program in Computer Science (PPGI)</p>");
+      printWriter.println("        <p style=\"margin: 5px 0; font-style: italic;\">PhD Student: Roberto Monteiro Dias</p>");
+      printWriter.println("    </div>");
+      printWriter.println("</div>");
+      printWriter.print("  <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js'></script>");
+      printWriter.print("</body>");
+      printWriter.print("</html>");
+      printWriter.close();
+   }
+}
