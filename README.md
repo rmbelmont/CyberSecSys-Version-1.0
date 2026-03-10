@@ -19,7 +19,7 @@ Referências para citação:
 
 7. SEGURANÇA cibernética em sistemas de informação: treinamento imersivo com plataforma gamificada. Dezembro de 2025. DOI: 10.13140/RG.2.2.16381.01763. Disponível em: https://www.researchgate.net/publication/399166898_Seguranca_Cibernetica_em_Sistemas_de_Informacao_Treinamento_Imersivo_com_Plataforma_Gamificada. Acesso em: 09 mar. 2026.
 
-Referênbcias no no formato BibTeX?
+Referênbcias no formato BibTeX?
 
    @misc{siqueira_high-level_2024,
 	title = {High-Level {Ontology} for {Information} {Systems} {Security}},
