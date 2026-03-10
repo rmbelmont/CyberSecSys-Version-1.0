@@ -19,6 +19,73 @@ Referências para citação:
 
 7. SEGURANÇA cibernética em sistemas de informação: treinamento imersivo com plataforma gamificada. Dezembro de 2025. DOI: 10.13140/RG.2.2.16381.01763. Disponível em: https://www.researchgate.net/publication/399166898_Seguranca_Cibernetica_em_Sistemas_de_Informacao_Treinamento_Imersivo_com_Plataforma_Gamificada. Acesso em: 09 mar. 2026.
 
----
+Referênbcias no no formato BibTeX?
 
-Todas as referências agora estão numeradas e prontas para uso em seu trabalho acadêmico!
+   @misc{siqueira_high-level_2024,
+	title = {High-Level {Ontology} for {Information} {Systems} {Security}},
+	url = {https://www.researchgate.net/publication/385097909_High-Level_Ontology_for_Information_Systems_Security},
+	doi = {10.5281/zenodo.13961386},
+	author = {Siqueira, Sean Wolfgand Matsui and Dias, Roberto},
+	month = oct,
+	year = {2024},
+	note = {Acesso em: 9 mar. 2026}
+}
+
+@misc{researching_2025,
+	title = {Researching security ontologies for {Information} {Systems}},
+	url = {https://www.researchgate.net/publication/391280933_Researching_security_ontologies_for_Information_Systems},
+	doi = {10.5281/zenodo.15470827},
+	month = apr,
+	year = {2025},
+	note = {Acesso em: 9 mar. 2026}
+}
+
+@inproceedings{ontologia_2025,
+	title = {Ontologia de alto nível para segurança cibernética em sistemas de informação},
+	url = {https://www.researchgate.net/publication/395996478_Ontologia_de_Alto_Nivel_para_Seguranca_Cibernetica_em_Sistemas_de_Informacao},
+	doi = {10.5281/zenodo.17246442},
+	booktitle = {Workshop de {Teses} e {Dissertações} em {Ontologias} ({WTDO}), 9., 2025, {São} {José} dos {Campos}},
+	publisher = {Instituto Tecnológico de Aeronáutica (ITA)},
+	author = {Dias, Roberto and Siqueira, Sean Wolfgand Matsui},
+	year = {2025},
+	note = {Acesso em: 9 mar. 2026}
+}
+
+@misc{cybersecurity_2025,
+	title = {Cybersecurity data integration in information systems: a semantic knowledge graph approach},
+	url = {https://www.researchgate.net/publication/396440781_Cybersecurity_data_integration_in_information_systems_a_semantic_knowledge_graph_approach},
+	doi = {10.5281/zenodo.17332938},
+	month = oct,
+	year = {2025},
+	note = {Acesso em: 9 mar. 2026}
+}
+
+@inproceedings{integracao_2025,
+	title = {Integração de dados de cibersegurança em sistemas de informação: uma abordagem de grafo de conhecimento semântico},
+	url = {https://www.researchgate.net/publication/396830983_Integracao_de_Dados_de_Ciberseguranca_em_Sistemas_de_Informacao_Uma_Abordagem_de_Grafo_de_Conhecimento_Semantico},
+	doi = {10.13140/RG.2.2.19300.85127},
+	booktitle = {Symposium for {Young} {Researchers}' {Novel} {Explorations} and {Growth} {Yearnings} ({SYNERGY}), 3., 2025},
+	author = {Dias, Roberto and Siqueira, Sean Wolfgand Matsui},
+	year = {2025},
+	note = {Acesso em: 9 mar. 2026}
+}
+
+@misc{gamificada_2025,
+	title = {Gamificada cybersecurity in information systems: immersive training with a gamified platform},
+	url = {https://www.researchgate.net/publication/399166802_Gamificada_Cybersecurity_in_Information_Systems_Immersive_Training_with_a_Gamified_Platform},
+	doi = {10.13140/RG.2.2.29802.79045/1},
+	month = dec,
+	year = {2025},
+	note = {Acesso em: 9 mar. 2026}
+}
+
+@misc{seguranca_2025,
+	title = {Segurança cibernética em sistemas de informação: treinamento imersivo com plataforma gamificada},
+	url = {https://www.researchgate.net/publication/399166898_Seguranca_Cibernetica_em_Sistemas_de_Informacao_Treinamento_Imersivo_com_Plataforma_Gamificada},
+	doi = {10.13140/RG.2.2.16381.01763},
+	month = dec,
+	year = {2025},
+	note = {Acesso em: 9 mar. 2026}
+}
+
+
