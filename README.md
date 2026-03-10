@@ -20,6 +20,7 @@ Referências para citação:
 7. SEGURANÇA cibernética em sistemas de informação: treinamento imersivo com plataforma gamificada. Dezembro de 2025. DOI: 10.13140/RG.2.2.16381.01763. Disponível em: https://www.researchgate.net/publication/399166898_Seguranca_Cibernetica_em_Sistemas_de_Informacao_Treinamento_Imersivo_com_Plataforma_Gamificada. Acesso em: 09 mar. 2026.
 
 Exame de Qualificação de Doutorado:
+
 DIAS, Roberto. Investigating Security Ontologies in Information Systems. 2025. Tese (Doutorado em Ciência da Computação) — Orientador: Sean Wolfgand Matsui Siqueira. DOI: 10.5281/zenodo.15526750. Disponível em: https://www.researchgate.net/publication/391899182_Investigating_Security_Ontologies_in_Information_Systems
 Acesso em: 10 mar. 2026.
 
@@ -91,6 +92,8 @@ Referênbcias no formato BibTeX?
 	year = {2025},
 	note = {Acesso em: 9 mar. 2026}
 }
+
+Exame de Qualificação de Doutorado:
 
 @phdthesis{dias2025securityontologies,
   author       = {Dias, Roberto},
