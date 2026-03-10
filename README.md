@@ -24,7 +24,7 @@ Exame de Qualificação de Doutorado:
 DIAS, Roberto. Investigating Security Ontologies in Information Systems. 2025. Tese (Doutorado em Ciência da Computação) — Orientador: Sean Wolfgand Matsui Siqueira. DOI: 10.5281/zenodo.15526750. Disponível em: https://www.researchgate.net/publication/391899182_Investigating_Security_Ontologies_in_Information_Systems
 Acesso em: 10 mar. 2026.
 
-Referênbcias no formato BibTeX?
+Referências no formato BibTeX:
 
    @misc{siqueira_high-level_2024,
 	title = {High-Level {Ontology} for {Information} {Systems} {Security}},
